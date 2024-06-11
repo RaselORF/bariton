@@ -1,0 +1,11 @@
+--- /workspace/source/src/main/java/baritone/pathing/movement/movements/MovementDescend.java
++++ /workspace/source/src/main/java/baritone/pathing/movement/movements/MovementDescend.java
+@@ -175,7 +175,7 @@
+                 // found a fall into water
+                 res.x = destX;
+                 res.y = newY;
+-                res.z = destZ;
++                res.setZ(destZ);
+                 res.cost = tentativeCost;// TODO incorporate water swim up cost?
+                 return false;
+             }

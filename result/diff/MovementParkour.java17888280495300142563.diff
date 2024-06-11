@@ -1,0 +1,29 @@
+--- /workspace/source/src/main/java/baritone/pathing/movement/movements/MovementParkour.java
++++ /workspace/source/src/main/java/baritone/pathing/movement/movements/MovementParkour.java
+@@ -57,7 +57,7 @@
+         MutableMoveResult res = new MutableMoveResult();
+         cost(context, src.x, src.y, src.z, direction, res);
+         int dist = Math.abs(res.x - src.x) + Math.abs(res.z - src.z);
+-        return new MovementParkour(context.getBaritone(), src, dist, direction, res.y > src.y);
++        return new MovementParkour(context.getBaritone(), src, dist, direction, res.getY() > src.y);
+     }
+ 
+     public static void cost(CalculationContext context, int x, int y, int z, EnumFacing dir, MutableMoveResult res) {
+@@ -149,7 +149,7 @@
+             ) {
+                 if (checkOvershootSafety(context.bsi, destX + xDiff, y, destZ + zDiff)) {
+                     res.x = destX;
+-                    res.y = y;
++                    res.setY(y);
+                     res.z = destZ;
+                     res.cost = costFromJumpDistance(i) + context.jumpPenalty;
+                     return;
+@@ -224,7 +224,7 @@
+     public double calculateCost(CalculationContext context) {
+         MutableMoveResult res = new MutableMoveResult();
+         cost(context, src.x, src.y, src.z, direction, res);
+-        if (res.x != dest.x || res.y != dest.y || res.z != dest.z) {
++        if (res.x != dest.x || res.getY() != dest.y || res.z != dest.z) {
+             return COST_INF;
+         }
+         return res.cost;

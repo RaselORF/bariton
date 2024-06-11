@@ -1,0 +1,17 @@
+--- /workspace/source/src/launch/java/baritone/launch/mixins/MixinStateImplementation.java
++++ /workspace/source/src/launch/java/baritone/launch/mixins/MixinStateImplementation.java
+@@ -45,7 +45,13 @@
+         hashCode = properties.hashCode();
+     }
+ 
+-    /**
++    
++	/* ********OpenRefactory Warning********
++	 The class 'MixinStateImplementation' only overrides 'hashCode' method.
++	 iCR suggests that both 'equals' and 'hashCode' should be overridden.
++	*/
++
++	/**
+      * Cache this instead of using the fucking map every time
+      *
+      * @author LoganDark

@@ -1,0 +1,15 @@
+--- /workspace/source/src/main/java/baritone/behavior/InventoryBehavior.java
++++ /workspace/source/src/main/java/baritone/behavior/InventoryBehavior.java
+@@ -58,7 +58,11 @@
+         }
+         ticksSinceLastInventoryMove++;
+         if (firstValidThrowaway() >= 9) { // aka there are none on the hotbar, but there are some in main inventory
+-            requestSwapWithHotBar(firstValidThrowaway(), 8);
++            int firstValidThrowawayResult = firstValidThrowaway();
++			// OR Warning: Handle Error Code
++			if (firstValidThrowawayResult == -1) {
++			}
++			requestSwapWithHotBar(firstValidThrowawayResult, 8);
+         }
+         int pick = bestToolAgainst(Blocks.STONE, ItemPickaxe.class);
+         if (pick >= 9) {

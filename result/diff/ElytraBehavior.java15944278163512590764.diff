@@ -1,0 +1,17 @@
+--- /workspace/source/src/main/java/baritone/process/elytra/ElytraBehavior.java
++++ /workspace/source/src/main/java/baritone/process/elytra/ElytraBehavior.java
+@@ -787,7 +787,13 @@
+             this.aimProcessor = aim;
+         }
+ 
+-        @Override
++        
++		/* ********OpenRefactory Warning********
++		 The class 'SolverContext' only overrides 'equals' method.
++		 iCR suggests that both 'equals' and 'hashCode' should be overridden.
++		*/
++
++		@Override
+         public boolean equals(Object o) {
+             if (this == o) {
+                 return true;

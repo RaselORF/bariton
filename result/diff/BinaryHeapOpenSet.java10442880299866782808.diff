@@ -1,0 +1,53 @@
+--- /workspace/source/src/main/java/baritone/pathing/calc/openset/BinaryHeapOpenSet.java
++++ /workspace/source/src/main/java/baritone/pathing/calc/openset/BinaryHeapOpenSet.java
+@@ -62,22 +62,22 @@
+             array = Arrays.copyOf(array, array.length << 1);
+         }
+         size++;
+-        value.heapPosition = size;
++        value.setHeapPosition(size);
+         array[size] = value;
+         update(value);
+     }
+ 
+     @Override
+     public final void update(PathNode val) {
+-        int index = val.heapPosition;
++        int index = val.getHeapPosition();
+         int parentInd = index >>> 1;
+         double cost = val.combinedCost;
+         PathNode parentNode = array[parentInd];
+         while (index > 1 && parentNode.combinedCost > cost) {
+             array[index] = parentNode;
+             array[parentInd] = val;
+-            val.heapPosition = parentInd;
+-            parentNode.heapPosition = index;
++            val.setHeapPosition(parentInd);
++            parentNode.setHeapPosition(index);
+             index = parentInd;
+             parentInd = index >>> 1;
+             parentNode = array[parentInd];
+@@ -97,10 +97,10 @@
+         PathNode result = array[1];
+         PathNode val = array[size];
+         array[1] = val;
+-        val.heapPosition = 1;
++        val.setHeapPosition(1);
+         array[size] = null;
+         size--;
+-        result.heapPosition = -1;
++        result.setHeapPosition(-1);
+         if (size < 2) {
+             return result;
+         }
+@@ -124,8 +124,8 @@
+             }
+             array[index] = smallerChildNode;
+             array[smallerChild] = val;
+-            val.heapPosition = smallerChild;
+-            smallerChildNode.heapPosition = index;
++            val.setHeapPosition(smallerChild);
++            smallerChildNode.setHeapPosition(index);
+             index = smallerChild;
+         } while ((smallerChild <<= 1) <= size);
+         return result;

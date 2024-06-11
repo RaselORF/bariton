@@ -1,0 +1,20 @@
+--- /workspace/source/src/main/java/baritone/cache/WorldData.java
++++ /workspace/source/src/main/java/baritone/cache/WorldData.java
+@@ -31,7 +31,7 @@
+  */
+ public class WorldData implements IWorldData {
+ 
+-    public final CachedWorld cache;
++    private final CachedWorld cache;
+     private final WaypointCollection waypoints;
+     //public final MapData map;
+     public final Path directory;
+@@ -60,4 +60,8 @@
+     public IWaypointCollection getWaypoints() {
+         return this.waypoints;
+     }
++
++	public final CachedWorld getCache() {
++		return cache;
++	}
+ }

@@ -1,0 +1,11 @@
+--- /workspace/source/src/main/java/baritone/utils/InputOverrideHandler.java
++++ /workspace/source/src/main/java/baritone/utils/InputOverrideHandler.java
+@@ -113,7 +113,7 @@
+             }
+         }
+         // if we are not primary (a bot) we should set the movementinput even when idle (not pathing)
+-        return baritone.getPathingBehavior().isPathing() || baritone != BaritoneAPI.getProvider().getPrimaryBaritone();
++        return getBaritone().getPathingBehavior().isPathing() || getBaritone() != BaritoneAPI.getProvider().getPrimaryBaritone();
+     }
+ 
+     public BlockBreakHelper getBlockBreakHelper() {

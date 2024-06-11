@@ -1,0 +1,11 @@
+--- /workspace/source/src/main/java/baritone/pathing/path/PathExecutor.java
++++ /workspace/source/src/main/java/baritone/pathing/path/PathExecutor.java
+@@ -186,7 +186,7 @@
+         }*/
+         if (pathPosition < path.movements().size() - 1) {
+             IMovement next = path.movements().get(pathPosition + 1);
+-            if (!behavior.baritone.bsi.worldContainsLoadedChunk(next.getDest().x, next.getDest().z)) {
++            if (!behavior.baritone.getBsi().worldContainsLoadedChunk(next.getDest().x, next.getDest().z)) {
+                 logDebug("Pausing since destination is at edge of loaded chunks");
+                 clearKeys();
+                 return true;

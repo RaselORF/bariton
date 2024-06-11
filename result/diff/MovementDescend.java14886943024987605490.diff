@@ -1,0 +1,11 @@
+--- /workspace/source/src/main/java/baritone/pathing/movement/movements/MovementDescend.java
++++ /workspace/source/src/main/java/baritone/pathing/movement/movements/MovementDescend.java
+@@ -204,7 +204,7 @@
+             if (MovementHelper.isBottomSlab(ontoBlock)) {
+                 return false; // falling onto a half slab is really glitchy, and can cause more fall damage than we'd expect
+             }
+-            if (reachedMinimum && unprotectedFallHeight <= context.maxFallHeightNoWater + 1) {
++            if (reachedMinimum && unprotectedFallHeight <= context.getMaxFallHeightNoWater() + 1) {
+                 // fallHeight = 4 means onto.up() is 3 blocks down, which is the max
+                 res.x = destX;
+                 res.y = newY + 1;

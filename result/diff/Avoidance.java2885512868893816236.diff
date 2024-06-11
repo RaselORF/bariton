@@ -1,0 +1,23 @@
+--- /workspace/source/src/main/java/baritone/utils/pathing/Avoidance.java
++++ /workspace/source/src/main/java/baritone/utils/pathing/Avoidance.java
+@@ -68,7 +68,19 @@
+         double mobSpawnerCoeff = Baritone.settings().mobSpawnerAvoidanceCoefficient.value;
+         double mobCoeff = Baritone.settings().mobAvoidanceCoefficient.value;
+         if (mobSpawnerCoeff != 1.0D) {
+-            ctx.worldData().getCachedWorld().getLocationsOf("mob_spawner", 1, ctx.playerFeet().x, ctx.playerFeet().z, 2)
++            
++			/* ********OpenRefactory Warning********
++			 Possible null pointer dereference!
++			 Path: 
++				File: Favoring.java, Line: 33
++					Avoidance.create(ctx)
++					Information is passed through the method call that later results into a null pointer dereference.
++					The expression is enclosed inside an Enhanced For statement.
++				File: Avoidance.java, Line: 71
++					ctx.worldData().getCachedWorld().getLocationsOf("mob_spawner",1,ctx.playerFeet().x,ctx.playerFeet().z,2).forEach(mobspawner -> res.add(new Avoidance(mobspawner,mobSpawnerCoeff,Baritone.settings().mobSpawnerAvoidanceRadius.value)));
++					Method worldData may return null and is referenced in method invocation.
++			*/
++			ctx.worldData().getCachedWorld().getLocationsOf("mob_spawner", 1, ctx.playerFeet().x, ctx.playerFeet().z, 2)
+                     .forEach(mobspawner -> res.add(new Avoidance(mobspawner, mobSpawnerCoeff, Baritone.settings().mobSpawnerAvoidanceRadius.value)));
+         }
+         if (mobCoeff != 1.0D) {

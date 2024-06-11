@@ -1,0 +1,11 @@
+--- /workspace/source/src/main/java/baritone/pathing/movement/movements/MovementDescend.java
++++ /workspace/source/src/main/java/baritone/pathing/movement/movements/MovementDescend.java
+@@ -154,7 +154,7 @@
+                 // this check prevents it from getting the block at y=-1 and crashing
+                 return false;
+             }
+-            boolean reachedMinimum = fallHeight >= context.minFallHeight;
++            boolean reachedMinimum = fallHeight >= context.getMinFallHeight();
+             IBlockState ontoBlock = context.get(destX, newY, destZ);
+             int unprotectedFallHeight = fallHeight - (y - effectiveStartHeight); // equal to fallHeight - y + effectiveFallHeight, which is equal to -newY + effectiveFallHeight, which is equal to effectiveFallHeight - newY
+             double tentativeCost = WALK_OFF_BLOCK_COST + FALL_N_BLOCKS_COST[unprotectedFallHeight] + frontBreak + costSoFar;

@@ -1,0 +1,11 @@
+--- /workspace/source/src/main/java/baritone/pathing/movement/movements/MovementFall.java
++++ /workspace/source/src/main/java/baritone/pathing/movement/movements/MovementFall.java
+@@ -62,7 +62,7 @@
+         if (result.y != dest.y) {
+             return COST_INF; // doesn't apply to us, this position is a descend not a fall
+         }
+-        return result.cost;
++        return result.getCost();
+     }
+ 
+     @Override

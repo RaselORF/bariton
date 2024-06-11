@@ -1,0 +1,20 @@
+--- /workspace/source/src/main/java/baritone/process/BuilderProcess.java
++++ /workspace/source/src/main/java/baritone/process/BuilderProcess.java
+@@ -1058,7 +1058,7 @@
+             this.originY = origin.getY();
+             this.originZ = origin.getZ();
+ 
+-            this.jumpPenalty += 10;
++            this.setJumpPenalty(this.getJumpPenalty() + 10);
+             this.backtrackCostFavoringCoefficient = 1;
+         }
+ 
+@@ -1085,7 +1085,7 @@
+                 }
+                 if (placeable.contains(sch)) {
+                     return 0; // thats right we gonna make it FREE to place a block where it should go in a structure
+-                    // no place block penalty at all ?
++                    // no place block penalty at all ????
+                     // i'm such an idiot that i just tried to copy and paste the epic gamer moment emoji too
+                     // get added to unicode when?
+                 }

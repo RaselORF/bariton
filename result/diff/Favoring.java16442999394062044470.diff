@@ -1,0 +1,11 @@
+--- /workspace/source/src/main/java/baritone/utils/pathing/Favoring.java
++++ /workspace/source/src/main/java/baritone/utils/pathing/Favoring.java
+@@ -39,7 +39,7 @@
+     public Favoring(IPath previous, CalculationContext context) { // create one just from previous path, no mob avoidances
+         favorings = new Long2DoubleOpenHashMap();
+         favorings.defaultReturnValue(1.0D);
+-        double coeff = context.backtrackCostFavoringCoefficient;
++        double coeff = context.getBacktrackCostFavoringCoefficient();
+         if (coeff != 1D && previous != null) {
+             previous.positions().forEach(pos -> favorings.put(BetterBlockPos.longHash(pos), coeff));
+         }

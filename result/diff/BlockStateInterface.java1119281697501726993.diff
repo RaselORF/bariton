@@ -1,0 +1,20 @@
+--- /workspace/source/src/main/java/baritone/utils/BlockStateInterface.java
++++ /workspace/source/src/main/java/baritone/utils/BlockStateInterface.java
+@@ -126,7 +126,7 @@
+             if (worldData == null) {
+                 return AIR;
+             }
+-            CachedRegion region = worldData.cache.getRegion(x >> 9, z >> 9);
++            CachedRegion region = worldData.getCache().getRegion(x >> 9, z >> 9);
+             if (region == null) {
+                 return AIR;
+             }
+@@ -157,7 +157,7 @@
+         if (worldData == null) {
+             return false;
+         }
+-        prevRegion = worldData.cache.getRegion(x >> 9, z >> 9);
++        prevRegion = worldData.getCache().getRegion(x >> 9, z >> 9);
+         if (prevRegion == null) {
+             return false;
+         }

@@ -1,0 +1,20 @@
+--- /workspace/source/src/main/java/baritone/process/ExploreProcess.java
++++ /workspace/source/src/main/java/baritone/process/ExploreProcess.java
+@@ -224,7 +224,7 @@
+             logDirect("Loaded " + positions.length + " positions");
+             inFilter = new LongOpenHashSet();
+             for (MyChunkPos mcp : positions) {
+-                inFilter.add(ChunkPos.asLong(mcp.x, mcp.z));
++                inFilter.add(ChunkPos.asLong(mcp.getX(), mcp.z));
+             }
+         }
+ 
+@@ -252,7 +252,7 @@
+             int countRemain = 0;
+             BaritoneChunkCache bcc = new BaritoneChunkCache();
+             for (MyChunkPos pos : positions) {
+-                if (bcc.isAlreadyExplored(pos.x, pos.z) != Status.EXPLORED) {
++                if (bcc.isAlreadyExplored(pos.getX(), pos.z) != Status.EXPLORED) {
+                     // either waiting for it or dont have it at all
+                     countRemain++;
+                     if (countRemain >= Baritone.settings().exploreChunkSetMinimumSize.value) {

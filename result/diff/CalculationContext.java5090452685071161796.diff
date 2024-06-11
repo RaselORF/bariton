@@ -1,0 +1,24 @@
+--- /workspace/source/src/main/java/baritone/pathing/movement/CalculationContext.java
++++ /workspace/source/src/main/java/baritone/pathing/movement/CalculationContext.java
+@@ -66,7 +66,7 @@
+     public final boolean allowJumpAt256;
+     public final boolean allowParkourAscend;
+     public final boolean assumeWalkOnWater;
+-    public boolean allowFallIntoLava;
++    private boolean allowFallIntoLava;
+     public final int frostWalker;
+     public final boolean allowDiagonalDescend;
+     public final boolean allowDiagonalAscend;
+@@ -182,4 +182,12 @@
+         // TODO more protection logic here; see #220
+         return false;
+     }
++
++	public boolean getAllowFallIntoLava() {
++		return allowFallIntoLava;
++	}
++
++	public void setAllowFallIntoLava(boolean allowFallIntoLava) {
++		this.allowFallIntoLava = allowFallIntoLava;
++	}
+ }

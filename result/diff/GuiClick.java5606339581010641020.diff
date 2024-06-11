@@ -1,0 +1,13 @@
+--- /workspace/source/src/main/java/baritone/utils/GuiClick.java
++++ /workspace/source/src/main/java/baritone/utils/GuiClick.java
+@@ -108,8 +108,8 @@
+     }
+ 
+     public void onRender() {
+-        GlStateManager.getFloat(GL_MODELVIEW_MATRIX, (FloatBuffer) MODELVIEW.clear());
+-        GlStateManager.getFloat(GL_PROJECTION_MATRIX, (FloatBuffer) PROJECTION.clear());
++        GlStateManager.optFloat(GL_MODELVIEW_MATRIX, (FloatBuffer) MODELVIEW.clear());
++        GlStateManager.optFloat(GL_PROJECTION_MATRIX, (FloatBuffer) PROJECTION.clear());
+         GlStateManager.glGetInteger(GL_VIEWPORT, (IntBuffer) VIEWPORT.clear());
+ 
+         if (currentMouseOver != null) {

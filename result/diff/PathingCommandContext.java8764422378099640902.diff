@@ -1,0 +1,18 @@
+--- /workspace/source/src/main/java/baritone/utils/PathingCommandContext.java
++++ /workspace/source/src/main/java/baritone/utils/PathingCommandContext.java
+@@ -24,10 +24,14 @@
+ 
+ public class PathingCommandContext extends PathingCommand {
+ 
+-    public final CalculationContext desiredCalcContext;
++    private final CalculationContext desiredCalcContext;
+ 
+     public PathingCommandContext(Goal goal, PathingCommandType commandType, CalculationContext context) {
+         super(goal, commandType);
+         this.desiredCalcContext = context;
+     }
++
++	public final CalculationContext getDesiredCalcContext() {
++		return desiredCalcContext;
++	}
+ }

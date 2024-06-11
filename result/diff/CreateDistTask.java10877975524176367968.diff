@@ -1,0 +1,11 @@
+--- /workspace/source/buildSrc/src/main/java/baritone/gradle/task/CreateDistTask.java
++++ /workspace/source/buildSrc/src/main/java/baritone/gradle/task/CreateDistTask.java
+@@ -51,7 +51,7 @@
+         // NIO will not automatically create directories
+         Path dir = getRelativeFile("dist/");
+         if (!Files.exists(dir)) {
+-            Files.createDirectory(dir);
++            Files.createDirectories(dir);
+         }
+ 
+         // Copy build jars to dist/

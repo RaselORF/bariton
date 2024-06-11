@@ -1,0 +1,11 @@
+--- /workspace/source/src/main/java/baritone/pathing/movement/movements/MovementDescend.java
++++ /workspace/source/src/main/java/baritone/pathing/movement/movements/MovementDescend.java
+@@ -179,7 +179,7 @@
+                 res.cost = tentativeCost;// TODO incorporate water swim up cost?
+                 return false;
+             }
+-            if (reachedMinimum && context.allowFallIntoLava && MovementHelper.isLava(ontoBlock.getBlock())) {
++            if (reachedMinimum && context.getAllowFallIntoLava() && MovementHelper.isLava(ontoBlock.getBlock())) {
+                 // found a fall into lava
+                 res.x = destX;
+                 res.y = newY;

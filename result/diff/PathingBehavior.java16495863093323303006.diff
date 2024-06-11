@@ -1,0 +1,91 @@
+--- /workspace/source/src/main/java/baritone/behavior/PathingBehavior.java
++++ /workspace/source/src/main/java/baritone/behavior/PathingBehavior.java
+@@ -88,7 +88,7 @@
+         toDispatch.drainTo(curr);
+         calcFailedLastTick = curr.contains(PathEvent.CALC_FAILED);
+         for (PathEvent event : curr) {
+-            baritone.getGameEventHandler().onPathEvent(event);
++            getBaritone().getGameEventHandler().onPathEvent(event);
+         }
+     }
+ 
+@@ -97,12 +97,12 @@
+         dispatchEvents();
+         if (event.getType() == TickEvent.Type.OUT) {
+             secretInternalSegmentCancel();
+-            baritone.getPathingControlManager().cancelEverything();
++            getBaritone().getPathingControlManager().cancelEverything();
+             return;
+         }
+ 
+         expectedSegmentStart = pathStart();
+-        baritone.getPathingControlManager().preTick();
++        getBaritone().getPathingControlManager().preTick();
+         tickPath();
+         ticksElapsedSoFar++;
+         dispatchEvents();
+@@ -120,8 +120,8 @@
+         if (pauseRequestedLastTick && safeToCancel) {
+             pauseRequestedLastTick = false;
+             if (unpausedLastTick) {
+-                baritone.getInputOverrideHandler().clearAllKeys();
+-                baritone.getInputOverrideHandler().getBlockBreakHelper().stopBreakingBlock();
++                getBaritone().getInputOverrideHandler().clearAllKeys();
++                getBaritone().getInputOverrideHandler().getBlockBreakHelper().stopBreakingBlock();
+             }
+             unpausedLastTick = false;
+             pausedThisTick = true;
+@@ -130,13 +130,13 @@
+         unpausedLastTick = true;
+         if (cancelRequested) {
+             cancelRequested = false;
+-            baritone.getInputOverrideHandler().clearAllKeys();
++            getBaritone().getInputOverrideHandler().clearAllKeys();
+         }
+         synchronized (pathPlanLock) {
+             synchronized (pathCalcLock) {
+                 if (inProgress != null) {
+                     // we are calculating
+-                    // are we calculating the right thing though? ?
++                    // are we calculating the right thing though? ????
+                     BetterBlockPos calcFrom = inProgress.getStart();
+                     Optional<IPath> currentBest = inProgress.bestPathSoFar();
+                     if ((current == null || !current.getPath().getDest().equals(calcFrom)) // if current ends in inProgress's start, then we're ok
+@@ -261,7 +261,7 @@
+         if (command instanceof PathingCommandContext) {
+             context = ((PathingCommandContext) command).desiredCalcContext;
+         } else {
+-            context = new CalculationContext(baritone, true);
++            context = new CalculationContexgetBaritone()ne, true);
+         }
+         if (goal == null) {
+             return false;
+@@ -311,7 +311,7 @@
+ 
+     public boolean isSafeToCancel() {
+         if (current == null) {
+-            return !baritone.getElytraProcess().isActive() || baritone.getElytraProcess().isSafeToCancel();
++            returngetBaritone()ne.getElytraProcess().isActive() |getBaritone()ne.getElytraProcess().isSafeToCancel();
+         }
+         return safeToCancel;
+     }
+@@ -334,7 +334,7 @@
+         if (doIt) {
+             secretInternalSegmentCancel();
+         }
+-        baritone.getPathingControlManager().cancelEverything(); // regardless of if we can stop the current segment, we can still stop the processes
++      getBaritone()ne.getPathingControlManager().cancelEverything(); // regardless of if we can stop the current segment, we can still stop the processes
+         return doIt;
+     }
+ 
+@@ -363,8 +363,8 @@
+             if (current != null) {
+                 current = null;
+                 next = null;
+-                baritone.getInputOverrideHandler().clearAllKeys();
+-                baritone.getInputOverrideHandler().getBlockBreakHelper().stopBreakingBlock();
++              getBaritone()ne.getInputOverrideHandler().clearAllKeys();
++              getBaritone()ne.getInputOverrideHandler().getBlockBreakHelper().stopBreakingBlock();
+             }
+         }
+     }

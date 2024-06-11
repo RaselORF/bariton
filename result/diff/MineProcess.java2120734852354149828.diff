@@ -1,0 +1,22 @@
+--- /workspace/source/src/main/java/baritone/process/MineProcess.java
++++ /workspace/source/src/main/java/baritone/process/MineProcess.java
+@@ -125,8 +125,8 @@
+         baritone.getInputOverrideHandler().clearAllKeys();
+         if (shaft.isPresent() && ctx.player().onGround) {
+             BlockPos pos = shaft.get();
+-            IBlockState state = baritone.bsi.get0(pos);
+-            if (!MovementHelper.avoidBreaking(baritone.bsi, pos.getX(), pos.getY(), pos.getZ(), state)) {
++            IBlockState state = baritone.getBsi().get0(pos);
++            if (!MovementHelper.avoidBreaking(baritone.getBsi(), pos.getX(), pos.getY(), pos.getZ(), state)) {
+                 Optional<Rotation> rot = RotationUtils.reachable(ctx, pos);
+                 if (rot.isPresent() && isSafeToCancel) {
+                     baritone.getLookBehavior().updateTarget(rot.get(), true);
+@@ -260,7 +260,7 @@
+     }
+ 
+     private Goal coalesce(BlockPos loc, List<BlockPos> locs, CalculationContext context) {
+-        boolean assumeVerticalShaftMine = !(baritone.bsi.get0(loc.up()).getBlock() instanceof BlockFalling);
++        boolean assumeVerticalShaftMine = !(baritone.getBsi().get0(loc.up()).getBlock() instanceof BlockFalling);
+         if (!Baritone.settings().forceInternalMining.value) {
+             if (assumeVerticalShaftMine) {
+                 // we can get directly below the block

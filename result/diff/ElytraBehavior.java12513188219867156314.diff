@@ -1,0 +1,15 @@
+--- /workspace/source/src/main/java/baritone/process/elytra/ElytraBehavior.java
++++ /workspace/source/src/main/java/baritone/process/elytra/ElytraBehavior.java
+@@ -488,7 +488,11 @@
+     }
+ 
+     public void onTick() {
+-        synchronized (this.context.cullingLock) {
++        
++		/* ********OpenRefactory Warning********
++		 Synchronization should be on a private final field
++		*/
++		synchronized (this.context.cullingLock) {
+             this.onTick0();
+         }
+         final long now = System.currentTimeMillis();

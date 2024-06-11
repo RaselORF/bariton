@@ -1,0 +1,18 @@
+--- /workspace/source/src/api/java/baritone/api/utils/MyChunkPos.java
++++ /workspace/source/src/api/java/baritone/api/utils/MyChunkPos.java
+@@ -28,10 +28,14 @@
+     public int x;
+ 
+     @SerializedName("z")
+-    public int z;
++    private int z;
+ 
+     @Override
+     public String toString() {
+         return x + ", " + z;
+     }
++
++	public int getZ() {
++		return z;
++	}
+ }

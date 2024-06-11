@@ -1,0 +1,24 @@
+--- /workspace/source/src/main/java/baritone/utils/pathing/MutableMoveResult.java
++++ /workspace/source/src/main/java/baritone/utils/pathing/MutableMoveResult.java
+@@ -26,7 +26,7 @@
+  */
+ public final class MutableMoveResult {
+ 
+-    public int x;
++    private int x;
+     public int y;
+     public int z;
+     public double cost;
+@@ -41,4 +41,12 @@
+         z = 0;
+         cost = ActionCosts.COST_INF;
+     }
++
++	public int getX() {
++		return x;
++	}
++
++	public void setX(int x) {
++		this.x = x;
++	}
+ }

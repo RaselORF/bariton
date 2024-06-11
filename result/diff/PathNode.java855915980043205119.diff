@@ -1,0 +1,24 @@
+--- /workspace/source/src/main/java/baritone/pathing/calc/PathNode.java
++++ /workspace/source/src/main/java/baritone/pathing/calc/PathNode.java
+@@ -44,7 +44,7 @@
+      * Total cost of getting from start to here
+      * Mutable and changed by PathFinder
+      */
+-    public double cost;
++    private double cost;
+ 
+     /**
+      * Should always be equal to estimatedCosttoGoal + cost
+@@ -104,4 +104,12 @@
+ 
+         return x == other.x && y == other.y && z == other.z;
+     }
++
++	public double getCost() {
++		return cost;
++	}
++
++	public void setCost(double cost) {
++		this.cost = cost;
++	}
+ }

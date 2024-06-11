@@ -1,0 +1,17 @@
+--- /workspace/source/src/main/java/baritone/selection/Selection.java
++++ /workspace/source/src/main/java/baritone/selection/Selection.java
+@@ -70,7 +70,13 @@
+         return aabb;
+     }
+ 
+-    @Override
++    
++	/* ********OpenRefactory Warning********
++	 The class 'Selection' only overrides 'hashCode' method.
++	 iCR suggests that both 'equals' and 'hashCode' should be overridden.
++	*/
++
++	@Override
+     public int hashCode() {
+         return pos1.hashCode() ^ pos2.hashCode();
+     }

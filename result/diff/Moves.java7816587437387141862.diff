@@ -1,0 +1,59 @@
+--- /workspace/source/src/main/java/baritone/pathing/movement/Moves.java
++++ /workspace/source/src/main/java/baritone/pathing/movement/Moves.java
+@@ -154,9 +154,9 @@
+             MutableMoveResult res = new MutableMoveResult();
+             apply(context, src.x, src.y, src.z, res);
+             if (res.y == src.y - 1) {
+-                return new MovementDescend(context.getBaritone(), src, new BetterBlockPos(res.x, res.y, res.z));
++                return new MovementDescend(context.getBaritone(), src, new BetterBlockPos(res.x, res.y, res.getZ()));
+             } else {
+-                return new MovementFall(context.getBaritone(), src, new BetterBlockPos(res.x, res.y, res.z));
++                return new MovementFall(context.getBaritone(), src, new BetterBlockPos(res.x, res.y, res.getZ()));
+             }
+         }
+ 
+@@ -172,9 +172,9 @@
+             MutableMoveResult res = new MutableMoveResult();
+             apply(context, src.x, src.y, src.z, res);
+             if (res.y == src.y - 1) {
+-                return new MovementDescend(context.getBaritone(), src, new BetterBlockPos(res.x, res.y, res.z));
++                return new MovementDescend(context.getBaritone(), src, new BetterBlockPos(res.x, res.y, res.getZ()));
+             } else {
+-                return new MovementFall(context.getBaritone(), src, new BetterBlockPos(res.x, res.y, res.z));
++                return new MovementFall(context.getBaritone(), src, new BetterBlockPos(res.x, res.y, res.getZ()));
+             }
+         }
+ 
+@@ -190,9 +190,9 @@
+             MutableMoveResult res = new MutableMoveResult();
+             apply(context, src.x, src.y, src.z, res);
+             if (res.y == src.y - 1) {
+-                return new MovementDescend(context.getBaritone(), src, new BetterBlockPos(res.x, res.y, res.z));
++                return new MovementDescend(context.getBaritone(), src, new BetterBlockPos(res.x, res.y, res.getZ()));
+             } else {
+-                return new MovementFall(context.getBaritone(), src, new BetterBlockPos(res.x, res.y, res.z));
++                return new MovementFall(context.getBaritone(), src, new BetterBlockPos(res.x, res.y, res.getZ()));
+             }
+         }
+ 
+@@ -208,9 +208,9 @@
+             MutableMoveResult res = new MutableMoveResult();
+             apply(context, src.x, src.y, src.z, res);
+             if (res.y == src.y - 1) {
+-                return new MovementDescend(context.getBaritone(), src, new BetterBlockPos(res.x, res.y, res.z));
++                return new MovementDescend(context.getBaritone(), src, new BetterBlockPos(res.x, res.y, res.getZ()));
+             } else {
+-                return new MovementFall(context.getBaritone(), src, new BetterBlockPos(res.x, res.y, res.z));
++                return new MovementFall(context.getBaritone(), src, new BetterBlockPos(res.x, res.y, res.getZ()));
+             }
+         }
+ 
+@@ -351,7 +351,7 @@
+         }
+         result.x = x + xOffset;
+         result.y = y + yOffset;
+-        result.z = z + zOffset;
++        result.setZ(z + zOffset);
+         result.cost = cost(context, x, y, z);
+     }
+ 

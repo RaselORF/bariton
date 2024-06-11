@@ -1,0 +1,24 @@
+--- /workspace/source/src/main/java/baritone/pathing/calc/PathNode.java
++++ /workspace/source/src/main/java/baritone/pathing/calc/PathNode.java
+@@ -61,7 +61,7 @@
+     /**
+      * Where is this node in the array flattenization of the binary heap? Needed for decrease-key operations.
+      */
+-    public int heapPosition;
++    private int heapPosition;
+ 
+     public PathNode(int x, int y, int z, Goal goal) {
+         this.previous = null;
+@@ -104,4 +104,12 @@
+ 
+         return x == other.x && y == other.y && z == other.z;
+     }
++
++	public int getHeapPosition() {
++		return heapPosition;
++	}
++
++	public void setHeapPosition(int heapPosition) {
++		this.heapPosition = heapPosition;
++	}
+ }

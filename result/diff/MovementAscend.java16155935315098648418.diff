@@ -1,0 +1,11 @@
+--- /workspace/source/src/main/java/baritone/pathing/movement/movements/MovementAscend.java
++++ /workspace/source/src/main/java/baritone/pathing/movement/movements/MovementAscend.java
+@@ -137,7 +137,7 @@
+             } else {
+                 walk = Math.max(JUMP_ONE_BLOCK_COST, WALK_ONE_BLOCK_COST);
+             }
+-            walk += context.jumpPenalty;
++            walk += context.getJumpPenalty();
+         }
+ 
+         double totalCost = walk + additionalPlacementCost;

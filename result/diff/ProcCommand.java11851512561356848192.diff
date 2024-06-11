@@ -1,0 +1,23 @@
+--- /workspace/source/src/main/java/baritone/command/defaults/ProcCommand.java
++++ /workspace/source/src/main/java/baritone/command/defaults/ProcCommand.java
+@@ -44,14 +44,18 @@
+         if (process == null) {
+             throw new CommandInvalidStateException("No process in control");
+         }
+-        logDirect(String.format(
++        double priorityResult = process.priority();
++		// OR Warning: Handle Error Code
++		if (priorityResult == -1) {
++		}
++		logDirect(String.format(
+                 "Class: %s\n" +
+                         "Priority: %f\n" +
+                         "Temporary: %b\n" +
+                         "Display name: %s\n" +
+                         "Last command: %s",
+                 process.getClass().getTypeName(),
+-                process.priority(),
++                priorityResult,
+                 process.isTemporary(),
+                 process.displayName(),
+                 pathingControlManager

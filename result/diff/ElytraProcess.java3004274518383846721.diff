@@ -1,0 +1,11 @@
+--- /workspace/source/src/main/java/baritone/process/ElytraProcess.java
++++ /workspace/source/src/main/java/baritone/process/ElytraProcess.java
+@@ -441,7 +441,7 @@
+         public WalkOffCalculationContext(IBaritone baritone) {
+             super(baritone, true);
+             this.allowFallIntoLava = true;
+-            this.minFallHeight = 8;
++            this.setMinFallHeight(8);
+             this.maxFallHeightNoWater = 10000;
+         }
+ 

@@ -1,0 +1,21 @@
+--- /workspace/source/src/api/java/baritone/api/utils/RotationUtils.java
++++ /workspace/source/src/api/java/baritone/api/utils/RotationUtils.java
+@@ -259,7 +259,17 @@
+     @Deprecated
+     public static Optional<Rotation> reachable(EntityPlayerSP entity, BlockPos pos, double blockReachDistance, boolean wouldSneak) {
+         IBaritone baritone = BaritoneAPI.getProvider().getBaritoneForPlayer(entity);
+-        IPlayerContext ctx = baritone.getPlayerContext();
++        /* ********OpenRefactory Warning********
++		 Possible null pointer dereference!
++		 Path: 
++			File: RotationUtils.java, Line: 261
++				IBaritone baritone=BaritoneAPI.getProvider().getBaritoneForPlayer(entity);
++				Variable baritone is initialized null.
++			File: RotationUtils.java, Line: 262
++				IPlayerContext ctx=baritone.getPlayerContext();
++				baritone is referenced in method invocation.
++		*/
++		IPlayerContext ctx = baritone.getPlayerContext();
+         return reachable(ctx, pos, blockReachDistance, wouldSneak);
+     }
+ 

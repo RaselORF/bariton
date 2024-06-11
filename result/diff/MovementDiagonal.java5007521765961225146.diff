@@ -1,0 +1,20 @@
+--- /workspace/source/src/main/java/baritone/pathing/movement/movements/MovementDiagonal.java
++++ /workspace/source/src/main/java/baritone/pathing/movement/movements/MovementDiagonal.java
+@@ -288,7 +288,16 @@
+ 
+     @Override
+     protected boolean prepared(MovementState state) {
+-        return true;
++        
++		/* ********OpenRefactory Warning********
++		 Possible omission of super method invocation by mistake!
++		 Overrides of method prepared from class Movement invoke the super method in the following classes (and files)
++			MovementFall (in MovementFall.java)
++			MovementPillar (in MovementPillar.java)
++			MovementTraverse (in MovementTraverse.java)
++		 But this override method doesn't follow the same pattern.
++		*/
++		return true;
+     }
+ 
+     @Override

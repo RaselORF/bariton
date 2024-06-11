@@ -1,0 +1,20 @@
+--- /workspace/source/src/main/java/baritone/behavior/InventoryBehavior.java
++++ /workspace/source/src/main/java/baritone/behavior/InventoryBehavior.java
+@@ -107,7 +107,7 @@
+             logDebug("Inventory move requested but delaying " + ticksSinceLastInventoryMove + " " + Baritone.settings().ticksBetweenInventoryMoves.value);
+             return false;
+         }
+-        if (Baritone.settings().inventoryMoveOnlyIfStationary.value && !baritone.getInventoryPauserProcess().stationaryForInventoryMove()) {
++        if (Baritone.settings().inventoryMoveOnlyIfStationary.value && !getBaritone().getInventoryPauserProcess().stationaryForInventoryMove()) {
+             logDebug("Inventory move requested but delaying until stationary");
+             return false;
+         }
+@@ -160,7 +160,7 @@
+     }
+ 
+     public boolean selectThrowawayForLocation(boolean select, int x, int y, int z) {
+-        IBlockState maybe = baritone.getBuilderProcess().placeAt(x, y, z, baritone.bsi.get0(x, y, z));
++        IBlockState maybe = getBaritone().getBuilderProcess().placeAt(x, y, z, getBaritone().bsi.get0(x, y, z));
+         if (maybe != null && throwaway(select, stack -> stack.getItem() instanceof ItemBlock && maybe.equals(((ItemBlock) stack.getItem()).getBlock().getStateForPlacement(ctx.world(), ctx.playerFeet(), EnumFacing.UP, (float) ctx.player().posX, (float) ctx.player().posY, (float) ctx.player().posZ, stack.getItem().getMetadata(stack.getMetadata()), ctx.player())))) {
+             return true; // gotem
+         }

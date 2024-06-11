@@ -1,0 +1,31 @@
+--- /workspace/source/src/main/java/baritone/pathing/calc/openset/BinaryHeapOpenSet.java
++++ /workspace/source/src/main/java/baritone/pathing/calc/openset/BinaryHeapOpenSet.java
+@@ -71,9 +71,9 @@
+     public final void update(PathNode val) {
+         int index = val.heapPosition;
+         int parentInd = index >>> 1;
+-        double cost = val.combinedCost;
++        double cost = val.getCombinedCost();
+         PathNode parentNode = array[parentInd];
+-        while (index > 1 && parentNode.combinedCost > cost) {
++        while (index > 1 && parentNode.getCombinedCost() > cost) {
+             array[index] = parentNode;
+             array[parentInd] = val;
+             val.heapPosition = parentInd;
+@@ -106,13 +106,13 @@
+         }
+         int index = 1;
+         int smallerChild = 2;
+-        double cost = val.combinedCost;
++        double cost = val.getCombinedCost();
+         do {
+             PathNode smallerChildNode = array[smallerChild];
+-            double smallerChildCost = smallerChildNode.combinedCost;
++            double smallerChildCost = smallerChildNode.getCombinedCost();
+             if (smallerChild < size) {
+                 PathNode rightChildNode = array[smallerChild + 1];
+-                double rightChildCost = rightChildNode.combinedCost;
++                double rightChildCost = rightChildNode.getCombinedCost();
+                 if (smallerChildCost > rightChildCost) {
+                     smallerChild++;
+                     smallerChildCost = rightChildCost;

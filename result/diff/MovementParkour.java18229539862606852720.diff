@@ -1,0 +1,11 @@
+--- /workspace/source/src/main/java/baritone/pathing/movement/movements/MovementParkour.java
++++ /workspace/source/src/main/java/baritone/pathing/movement/movements/MovementParkour.java
+@@ -151,7 +151,7 @@
+                     res.x = destX;
+                     res.y = y;
+                     res.z = destZ;
+-                    res.cost = costFromJumpDistance(i) + context.jumpPenalty;
++                    res.cost = costFromJumpDistance(i) + context.getJumpPenalty();
+                     return;
+                 }
+                 break;

@@ -1,0 +1,11 @@
+--- /workspace/source/src/main/java/baritone/pathing/calc/AStarPathFinder.java
++++ /workspace/source/src/main/java/baritone/pathing/calc/AStarPathFinder.java
+@@ -115,7 +115,7 @@
+                 res.reset();
+                 moves.apply(calcContext, currentNode.x, currentNode.y, currentNode.z, res);
+                 numMovementsConsidered++;
+-                double actionCost = res.cost;
++                double actionCost = res.getCost();
+                 if (actionCost >= ActionCosts.COST_INF) {
+                     continue;
+                 }

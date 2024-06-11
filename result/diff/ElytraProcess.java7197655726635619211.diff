@@ -1,0 +1,11 @@
+--- /workspace/source/src/main/java/baritone/process/ElytraProcess.java
++++ /workspace/source/src/main/java/baritone/process/ElytraProcess.java
+@@ -173,7 +173,7 @@
+         }
+ 
+         if (ctx.player().isElytraFlying()) {
+-            behavior.landingMode = this.state == State.LANDING;
++            behavior.setLandingMode(this.state == State.LANDING);
+             this.goal = null;
+             baritone.getInputOverrideHandler().clearAllKeys();
+             behavior.tick();

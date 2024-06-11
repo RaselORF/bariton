@@ -1,0 +1,11 @@
+--- /workspace/source/src/main/java/baritone/pathing/movement/Moves.java
++++ /workspace/source/src/main/java/baritone/pathing/movement/Moves.java
+@@ -352,7 +352,7 @@
+         result.x = x + xOffset;
+         result.y = y + yOffset;
+         result.z = z + zOffset;
+-        result.cost = cost(context, x, y, z);
++        result.setCost(cost(context, x, y, z));
+     }
+ 
+     public double cost(CalculationContext context, int x, int y, int z) {

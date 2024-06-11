@@ -1,0 +1,20 @@
+--- /workspace/source/src/main/java/baritone/pathing/movement/movements/MovementDescend.java
++++ /workspace/source/src/main/java/baritone/pathing/movement/movements/MovementDescend.java
+@@ -70,7 +70,7 @@
+         if (result.y != dest.y) {
+             return COST_INF; // doesn't apply to us, this position is a fall not a descend
+         }
+-        return result.cost;
++        return result.getCost();
+     }
+ 
+     @Override
+@@ -176,7 +176,7 @@
+                 res.x = destX;
+                 res.y = newY;
+                 res.z = destZ;
+-                res.cost = tentativeCost;// TODO incorporate water swim up cost?
++                res.setCost(tentativeCost);// TODO incorporate water swim up cost?
+                 return false;
+             }
+             if (reachedMinimum && context.allowFallIntoLava && MovementHelper.isLava(ontoBlock.getBlock())) {

@@ -1,0 +1,17 @@
+--- /workspace/source/src/main/java/baritone/process/elytra/ElytraBehavior.java
++++ /workspace/source/src/main/java/baritone/process/elytra/ElytraBehavior.java
+@@ -844,7 +844,13 @@
+             return this.isBoosted() ? Math.max(0, this.maximumBoostTicks - this.fireworkTicksExisted) : 0;
+         }
+ 
+-        @Override
++        
++		/* ********OpenRefactory Warning********
++		 The class 'FireworkBoost' only overrides 'equals' method.
++		 iCR suggests that both 'equals' and 'hashCode' should be overridden.
++		*/
++
++		@Override
+         public boolean equals(Object o) {
+             if (this == o) {
+                 return true;

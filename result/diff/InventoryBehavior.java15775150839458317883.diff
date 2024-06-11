@@ -1,0 +1,11 @@
+--- /workspace/source/src/main/java/baritone/behavior/InventoryBehavior.java
++++ /workspace/source/src/main/java/baritone/behavior/InventoryBehavior.java
+@@ -160,7 +160,7 @@
+     }
+ 
+     public boolean selectThrowawayForLocation(boolean select, int x, int y, int z) {
+-        IBlockState maybe = baritone.getBuilderProcess().placeAt(x, y, z, baritone.bsi.get0(x, y, z));
++        IBlockState maybe = baritone.getBuilderProcess().placeAt(x, y, z, baritone.getBsi().get0(x, y, z));
+         if (maybe != null && throwaway(select, stack -> stack.getItem() instanceof ItemBlock && maybe.equals(((ItemBlock) stack.getItem()).getBlock().getStateForPlacement(ctx.world(), ctx.playerFeet(), EnumFacing.UP, (float) ctx.player().posX, (float) ctx.player().posY, (float) ctx.player().posZ, stack.getItem().getMetadata(stack.getMetadata()), ctx.player())))) {
+             return true; // gotem
+         }

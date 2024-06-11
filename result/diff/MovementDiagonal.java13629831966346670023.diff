@@ -1,0 +1,11 @@
+--- /workspace/source/src/main/java/baritone/pathing/movement/movements/MovementDiagonal.java
++++ /workspace/source/src/main/java/baritone/pathing/movement/movements/MovementDiagonal.java
+@@ -90,7 +90,7 @@
+     public double calculateCost(CalculationContext context) {
+         MutableMoveResult result = new MutableMoveResult();
+         cost(context, src.x, src.y, src.z, dest.x, dest.z, result);
+-        if (result.y != dest.y) {
++        if (result.getY() != dest.y) {
+             return COST_INF; // doesn't apply to us, this position is incorrect
+         }
+         return result.cost;

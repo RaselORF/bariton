@@ -1,0 +1,18 @@
+--- /workspace/source/src/main/java/baritone/process/MineProcess.java
++++ /workspace/source/src/main/java/baritone/process/MineProcess.java
+@@ -363,7 +363,14 @@
+         List<Block> untracked = new ArrayList<>();
+         for (BlockOptionalMeta bom : filter.blocks()) {
+             Block block = bom.getBlock();
+-            if (CachedChunk.BLOCKS_TO_KEEP_TRACK_OF.contains(block)) {
++            /* ********OpenRefactory Warning********
++			 Type Mismatch Found in Node: 
++			
++			  CachedChunk.BLOCKS_TO_KEEP_TRACK_OF.contains(block)
++			
++			Method contains Expects Type Block but the Type of the Parameter is Block
++			*/
++			if (CachedChunk.BLOCKS_TO_KEEP_TRACK_OF.contains(block)) {
+                 BetterBlockPos pf = ctx.baritone.getPlayerContext().playerFeet();
+ 
+                 // maxRegionDistanceSq 2 means adjacent directly or adjacent diagonally; nothing further than that

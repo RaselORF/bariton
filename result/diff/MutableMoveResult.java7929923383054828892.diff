@@ -1,0 +1,24 @@
+--- /workspace/source/src/main/java/baritone/utils/pathing/MutableMoveResult.java
++++ /workspace/source/src/main/java/baritone/utils/pathing/MutableMoveResult.java
+@@ -28,7 +28,7 @@
+ 
+     public int x;
+     public int y;
+-    public int z;
++    private int z;
+     public double cost;
+ 
+     public MutableMoveResult() {
+@@ -41,4 +41,12 @@
+         z = 0;
+         cost = ActionCosts.COST_INF;
+     }
++
++	public int getZ() {
++		return z;
++	}
++
++	public void setZ(int z) {
++		this.z = z;
++	}
+ }

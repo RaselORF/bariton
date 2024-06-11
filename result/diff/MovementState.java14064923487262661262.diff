@@ -1,0 +1,11 @@
+--- /workspace/source/src/main/java/baritone/pathing/movement/MovementState.java
++++ /workspace/source/src/main/java/baritone/pathing/movement/MovementState.java
+@@ -63,7 +63,7 @@
+         /**
+          * Yaw and pitch angles that must be matched
+          */
+-        public Rotation rotation;
++        private Rotation rotation;
+ 
+         /**
+          * Whether or not this target must force rotations.

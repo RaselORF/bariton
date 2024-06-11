@@ -1,0 +1,15 @@
+--- /workspace/source/src/main/java/baritone/process/elytra/NetherPathfinderContext.java
++++ /workspace/source/src/main/java/baritone/process/elytra/NetherPathfinderContext.java
+@@ -63,7 +63,11 @@
+ 
+     public void queueCacheCulling(int chunkX, int chunkZ, int maxDistanceBlocks, BlockStateOctreeInterface boi) {
+         this.executor.execute(() -> {
+-            synchronized (this.cullingLock) {
++            
++			/* ********OpenRefactory Warning********
++			 Synchronization should be on a private final field
++			*/
++			synchronized (this.cullingLock) {
+                 boi.chunkPtr = 0L;
+                 NetherPathfinder.cullFarChunks(this.context, chunkX, chunkZ, maxDistanceBlocks);
+             }

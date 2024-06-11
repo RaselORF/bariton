@@ -1,0 +1,20 @@
+--- /workspace/source/src/main/java/baritone/process/elytra/ElytraBehavior.java
++++ /workspace/source/src/main/java/baritone/process/elytra/ElytraBehavior.java
+@@ -84,7 +84,7 @@
+      */
+     private int remainingSetBackTicks;
+ 
+-    public boolean landingMode;
++    private boolean landingMode;
+ 
+     /**
+      * The most recent minimum number of firework boost ticks, equivalent to {@code 10 * (1 + Flight)}
+@@ -1363,4 +1363,8 @@
+             return result;
+         }
+     }
++
++	public void setLandingMode(boolean landingMode) {
++		this.landingMode = landingMode;
++	}
+ }

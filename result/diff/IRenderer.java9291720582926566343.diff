@@ -1,0 +1,31 @@
+--- /workspace/source/src/main/java/baritone/utils/IRenderer.java
++++ /workspace/source/src/main/java/baritone/utils/IRenderer.java
+@@ -44,7 +44,27 @@
+     float[] color = new float[] {1.0F, 1.0F, 1.0F, 255.0F};
+ 
+     static void glColor(Color color, float alpha) {
+-        float[] colorComponents = color.getColorComponents(null);
++        
++		/* ********OpenRefactory Warning********
++		 Possible null pointer dereference!
++		 Path: 
++			File: SelectionRenderer.java, Line: 55
++				renderSelections(manager.getSelections());
++				A local variable will be null based on information passed through this method call.
++			File: SelectionRenderer.java, Line: 30
++				IRenderer.startLines(settings.colorSelection.value,opacity,lineWidth,ignoreDepth);
++				Information is passed through the method call via settings.colorSelection.value to the formal param color of the method. This later results into a null pointer dereference.
++			File: IRenderer.java, Line: 54
++				Color color
++				Variable color is declared as a formal parameter.
++			File: IRenderer.java, Line: 57
++				glColor(color,alpha);
++				Information is passed through the method call via color to the formal param color of the method. This later results into a null pointer dereference.
++			File: IRenderer.java, Line: 47
++				float[] colorComponents=color.getColorComponents(null);
++				color is referenced in method invocation.
++		*/
++		float[] colorComponents = color.getColorComponents(null);
+         IRenderer.color[0] = colorComponents[0];
+         IRenderer.color[1] = colorComponents[1];
+         IRenderer.color[2] = colorComponents[2];

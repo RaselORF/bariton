@@ -1,0 +1,11 @@
+--- /workspace/source/src/main/java/baritone/pathing/movement/movements/MovementTraverse.java
++++ /workspace/source/src/main/java/baritone/pathing/movement/movements/MovementTraverse.java
+@@ -340,7 +340,7 @@
+                     return state.setInput(Input.CLICK_RIGHT, true); // wait to right click until we are able to place
+                 }
+                 // Out.log("Trying to look at " + goalLook + ", actually looking at" + Baritone.whatAreYouLookingAt());
+-                if (ctx.playerRotations().isReallyCloseTo(state.getTarget().rotation)) {
++                if (ctx.playerRotations().isReallyCloseTo(state.getTarget().getRotation())) {
+                     state.setInput(Input.CLICK_LEFT, true);
+                 }
+                 return state;

@@ -1,0 +1,11 @@
+--- /workspace/source/src/main/java/baritone/pathing/calc/AStarPathFinder.java
++++ /workspace/source/src/main/java/baritone/pathing/calc/AStarPathFinder.java
+@@ -51,7 +51,7 @@
+     protected Optional<IPath> calculate0(long primaryTimeout, long failureTimeout) {
+         startNode = getNodeAtPosition(startX, startY, startZ, BetterBlockPos.longHash(startX, startY, startZ));
+         startNode.cost = 0;
+-        startNode.combinedCost = startNode.estimatedCostToGoal;
++        startNode.setCombinedCost(startNode.estimatedCostToGoal);
+         BinaryHeapOpenSet openSet = new BinaryHeapOpenSet();
+         openSet.insert(startNode);
+         double[] bestHeuristicSoFar = new double[COEFFICIENTS.length];//keep track of the best node by the metric of (estimatedCostToGoal + cost / COEFFICIENTS[i])

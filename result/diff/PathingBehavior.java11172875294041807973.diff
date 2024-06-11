@@ -1,0 +1,20 @@
+--- /workspace/source/src/main/java/baritone/behavior/PathingBehavior.java
++++ /workspace/source/src/main/java/baritone/behavior/PathingBehavior.java
+@@ -136,7 +136,7 @@
+             synchronized (pathCalcLock) {
+                 if (inProgress != null) {
+                     // we are calculating
+-                    // are we calculating the right thing though? ?
++                    // are we calculating the right thing though? ????
+                     BetterBlockPos calcFrom = inProgress.getStart();
+                     Optional<IPath> currentBest = inProgress.bestPathSoFar();
+                     if ((current == null || !current.getPath().getDest().equals(calcFrom)) // if current ends in inProgress's start, then we're ok
+@@ -259,7 +259,7 @@
+     public boolean secretInternalSetGoalAndPath(PathingCommand command) {
+         secretInternalSetGoal(command.goal);
+         if (command instanceof PathingCommandContext) {
+-            context = ((PathingCommandContext) command).desiredCalcContext;
++            context = ((PathingCommandContext) commandgetDesiredCalcContext()xt;
+         } else {
+             context = new CalculationContext(baritone, true);
+         }

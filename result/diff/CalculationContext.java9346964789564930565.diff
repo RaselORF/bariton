@@ -1,0 +1,24 @@
+--- /workspace/source/src/main/java/baritone/pathing/movement/CalculationContext.java
++++ /workspace/source/src/main/java/baritone/pathing/movement/CalculationContext.java
+@@ -76,7 +76,7 @@
+     public final int maxFallHeightBucket;
+     public final double waterWalkSpeed;
+     public final double breakBlockAdditionalCost;
+-    public double backtrackCostFavoringCoefficient;
++    private double backtrackCostFavoringCoefficient;
+     public double jumpPenalty;
+     public final double walkOnWaterOnePenalty;
+     public final BetterWorldBorder worldBorder;
+@@ -182,4 +182,12 @@
+         // TODO more protection logic here; see #220
+         return false;
+     }
++
++	public double getBacktrackCostFavoringCoefficient() {
++		return backtrackCostFavoringCoefficient;
++	}
++
++	public void setBacktrackCostFavoringCoefficient(double backtrackCostFavoringCoefficient) {
++		this.backtrackCostFavoringCoefficient = backtrackCostFavoringCoefficient;
++	}
+ }

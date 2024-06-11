@@ -1,0 +1,24 @@
+--- /workspace/source/src/main/java/baritone/pathing/movement/CalculationContext.java
++++ /workspace/source/src/main/java/baritone/pathing/movement/CalculationContext.java
+@@ -72,7 +72,7 @@
+     public final boolean allowDiagonalAscend;
+     public final boolean allowDownward;
+     public int minFallHeight;
+-    public int maxFallHeightNoWater;
++    private int maxFallHeightNoWater;
+     public final int maxFallHeightBucket;
+     public final double waterWalkSpeed;
+     public final double breakBlockAdditionalCost;
+@@ -182,4 +182,12 @@
+         // TODO more protection logic here; see #220
+         return false;
+     }
++
++	public int getMaxFallHeightNoWater() {
++		return maxFallHeightNoWater;
++	}
++
++	public void setMaxFallHeightNoWater(int maxFallHeightNoWater) {
++		this.maxFallHeightNoWater = maxFallHeightNoWater;
++	}
+ }

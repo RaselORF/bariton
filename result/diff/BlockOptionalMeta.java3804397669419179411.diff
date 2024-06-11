@@ -1,0 +1,11 @@
+--- /workspace/source/src/api/java/baritone/api/utils/BlockOptionalMeta.java
++++ /workspace/source/src/api/java/baritone/api/utils/BlockOptionalMeta.java
+@@ -80,7 +80,7 @@
+         block = Block.REGISTRY.getObject(id);
+ 
+         String props = matcher.group("properties");
+-        Map<IProperty<?>, ?> properties = props == null || props.equals("") ? Collections.emptyMap() : parseProperties(block, props);
++        Map<IProperty<?>, ?> properties = props == null || props.isEmpty() ? Collections.emptyMap() : parseProperties(block, props);
+ 
+         propertiesDescription = props == null ? "{}" : "{" + props.replace("=", ":") + "}";
+         meta = noMeta ? 0 : Integer.parseInt(matcher.group("meta"));

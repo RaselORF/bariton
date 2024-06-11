@@ -1,0 +1,20 @@
+--- /workspace/source/src/main/java/baritone/pathing/movement/movements/MovementParkour.java
++++ /workspace/source/src/main/java/baritone/pathing/movement/movements/MovementParkour.java
+@@ -151,7 +151,7 @@
+                     res.x = destX;
+                     res.y = y;
+                     res.z = destZ;
+-                    res.cost = costFromJumpDistance(i) + context.jumpPenalty;
++                    res.setCost(costFromJumpDistance(i) + context.jumpPenalty);
+                     return;
+                 }
+                 break;
+@@ -227,7 +227,7 @@
+         if (res.x != dest.x || res.y != dest.y || res.z != dest.z) {
+             return COST_INF;
+         }
+-        return res.cost;
++        return res.getCost();
+     }
+ 
+     @Override

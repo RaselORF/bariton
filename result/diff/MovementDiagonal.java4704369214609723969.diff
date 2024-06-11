@@ -1,0 +1,11 @@
+--- /workspace/source/src/main/java/baritone/pathing/movement/movements/MovementDiagonal.java
++++ /workspace/source/src/main/java/baritone/pathing/movement/movements/MovementDiagonal.java
+@@ -93,7 +93,7 @@
+         if (result.y != dest.y) {
+             return COST_INF; // doesn't apply to us, this position is incorrect
+         }
+-        return result.cost;
++        return result.getCost();
+     }
+ 
+     @Override
